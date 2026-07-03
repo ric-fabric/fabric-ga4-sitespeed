@@ -1,0 +1,169 @@
+<script>
+// Site speed -> dataLayer for GA4.
+// Reports once per page at teardown (tab hidden / pagehide) so LCP, CLS and
+// INP are final values, matching how Chrome reports CWV. Fire this tag on
+// Initialization or Page View. Initial page load only - no SPA route changes.
+(function () {
+  var SAMPLE_RATE = 1; // 0-1, e.g. 0.25 measures a quarter of page loads
+
+  if (Math.random() >= SAMPLE_RATE) return;
+  if (!('PerformanceObserver' in window) ||
+      !performance.getEntriesByType ||
+      !performance.getEntriesByType('navigation').length) return;
+
+  var nav = performance.getEntriesByType('navigation')[0];
+
+  // Default buffer is 250 entries - not enough for heavy pages
+  try { performance.setResourceTimingBufferSize(1000); } catch (e) {}
+
+  // Paint metrics are unreliable if the tab loaded in the background
+  var wasHidden = document.visibilityState !== 'visible';
+  var loaded = document.readyState === 'complete';
+  window.addEventListener('load', function () { loaded = true; });
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden' && !loaded) wasHidden = true;
+  });
+
+  var fcp = null;
+  try {
+    new PerformanceObserver(function (list, obs) {
+      var entry = list.getEntriesByName('first-contentful-paint')[0];
+      if (entry) { fcp = Math.round(entry.startTime); obs.disconnect(); }
+    }).observe({ type: 'paint', buffered: true });
+  } catch (e) {}
+
+  var lcp = null, lcpElement = null;
+  try {
+    new PerformanceObserver(function (list) {
+      var entries = list.getEntries();
+      var entry = entries[entries.length - 1];
+      lcp = Math.round(entry.startTime);
+      var el = entry.element;
+      if (el) {
+        var ident = el.tagName;
+        if (el.id) {
+          ident += '#' + el.id;
+        } else if (entry.url) {
+          var file = entry.url.split('?')[0].split('/').pop();
+          if (file) ident += ':' + file;
+        }
+        lcpElement = ident.slice(0, 100);
+      }
+    }).observe({ type: 'largest-contentful-paint', buffered: true });
+  } catch (e) {}
+
+  // CLS session windows: shifts group while <1s apart, windows cap at 5s,
+  // score is the worst window - same method as CrUX
+  var cls = 0, clsWindow = 0, clsWindowEntries = [];
+  try {
+    new PerformanceObserver(function (list) {
+      list.getEntries().forEach(function (entry) {
+        if (entry.hadRecentInput) return;
+        var first = clsWindowEntries[0];
+        var last = clsWindowEntries[clsWindowEntries.length - 1];
+        if (clsWindow &&
+            entry.startTime - last.startTime < 1000 &&
+            entry.startTime - first.startTime < 5000) {
+          clsWindow += entry.value;
+          clsWindowEntries.push(entry);
+        } else {
+          clsWindow = entry.value;
+          clsWindowEntries = [entry];
+        }
+        if (clsWindow > cls) cls = clsWindow;
+      });
+    }).observe({ type: 'layout-shift', buffered: true });
+  } catch (e) {}
+
+  // INP: keep the 10 slowest interactions (one per interactionId),
+  // report ~p98 by stepping up the list every 50 interactions
+  var interactions = [];
+  var minId = Infinity, maxId = 0;
+  function recordInteraction(entry) {
+    if (!entry.interactionId) return;
+    minId = Math.min(minId, entry.interactionId);
+    maxId = Math.max(maxId, entry.interactionId);
+    var existing = null;
+    for (var i = 0; i < interactions.length; i++) {
+      if (interactions[i].id === entry.interactionId) { existing = interactions[i]; break; }
+    }
+    if (existing) existing.latency = Math.max(existing.latency, entry.duration);
+    else interactions.push({ id: entry.interactionId, latency: entry.duration });
+    interactions.sort(function (a, b) { return b.latency - a.latency; });
+    if (interactions.length > 10) interactions.length = 10;
+  }
+  try {
+    new PerformanceObserver(function (list) { list.getEntries().forEach(recordInteraction); })
+      .observe({ type: 'event', buffered: true, durationThreshold: 40 });
+    new PerformanceObserver(function (list) { list.getEntries().forEach(recordInteraction); })
+      .observe({ type: 'first-input', buffered: true });
+  } catch (e) {}
+  function getINP() {
+    if (!interactions.length) return null;
+    var count = (performance.interactionCount !== undefined)
+      ? performance.interactionCount
+      : (maxId ? (maxId - minId) / 7 + 1 : 0);
+    return Math.round(interactions[Math.min(interactions.length - 1, Math.floor(count / 50))].latency);
+  }
+
+  var reported = false;
+  function report() {
+    if (reported) return;
+    reported = true;
+
+    // Cross-origin resources without Timing-Allow-Origin report 0 bytes,
+    // so count them separately rather than letting them distort the ratios
+    var resources = performance.getEntriesByType('resource');
+    var decodedSize = 0, transferSize = 0, cacheHits = 0, measurable = 0, taoBlocked = 0;
+    resources.forEach(function (r) {
+      var decoded = r.decodedBodySize || 0;
+      var transfer = r.transferSize || 0;
+      decodedSize += decoded;
+      transferSize += transfer;
+      if (decoded === 0 && transfer === 0) {
+        taoBlocked++;
+      } else {
+        measurable++;
+        if (transfer === 0) cacheHits++;
+      }
+    });
+
+    var conn = navigator.connection || {};
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'site_speed',
+      siteSpeedMeasurement: {
+        ttfb: Math.round(nav.responseStart),
+        fcp: fcp,
+        lcp: lcp,
+        cls: Math.round(cls * 1000) / 1000,
+        inp: getINP(),
+        load: nav.domComplete ? Math.round(nav.domComplete) : null,
+        dcl: nav.domContentLoadedEventEnd ? Math.round(nav.domContentLoadedEventEnd) : null,
+        redirect_time: Math.round(nav.redirectEnd - nav.redirectStart),
+        dns_time: Math.round(nav.domainLookupEnd - nav.domainLookupStart),
+        connect_time: Math.round(nav.connectEnd - nav.connectStart),
+        decoded_size: decodedSize,
+        transfer_size: transferSize,
+        requests: resources.length,
+        tao_blocked: taoBlocked,
+        cache_hit_ratio: measurable ? Math.round(cacheHits / measurable * 100) / 100 : null,
+        lcp_element: lcpElement,
+        connection_type: conn.effectiveType || null,
+        rtt: (conn.rtt !== undefined) ? conn.rtt : null,
+        downlink: (conn.downlink !== undefined) ? conn.downlink : null,
+        nav_type: nav.type,
+        was_hidden: wasHidden
+      }
+    });
+  }
+
+  // Tab going hidden is the most reliable end-of-page signal, especially
+  // on mobile where pagehide doesn't always fire
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') report();
+  });
+  window.addEventListener('pagehide', report);
+})();
+</script>

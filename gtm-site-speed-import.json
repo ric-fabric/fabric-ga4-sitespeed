@@ -1,0 +1,1045 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2026-07-02 13:54:09",
+    "containerVersion": {
+        "path": "accounts/6070648465/containers/101261518/versions/41",
+        "accountId": "6070648465",
+        "containerId": "101261518",
+        "containerVersionId": "41",
+        "name": "Site Speed Updates",
+        "container": {
+            "path": "accounts/6070648465/containers/101261518",
+            "accountId": "6070648465",
+            "containerId": "101261518",
+            "name": "fabric-analytics.com",
+            "publicId": "GTM-N7KC7FX",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1675802909529",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6070648465/containers/101261518/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": false
+            },
+            "tagIds": [
+                "GTM-N7KC7FX"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "tagId": "99",
+                "name": "GA4 - Site Speed Event",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "eventSettingsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "ttfb"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - TTFB}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "fcp"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - FCP}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "lcp"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - LCP}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "cls"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - CLS}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "load"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Page Load}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "inp"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - INP}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "dcl"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - DCL}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "redirect_time"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Redirect Time}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "dns_time"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - DNS Time}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "connect_time"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Connect Time}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "decoded_size"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Decoded Size}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "transfer_size"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Transfer Size}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "requests"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Requests}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "cache_hit_ratio"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Cache Hit Ratio}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "lcp_element"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - LCP Element}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "connection_type"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Connection Type}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "rtt"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - RTT}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "downlink"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Downlink}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "nav_type"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Nav Type}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "was_hidden"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - Was Hidden}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "tao_blocked"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Site Speed - TAO Blocked}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "site_speed"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "{{GA4 - Measurement ID}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventSettingsVariable",
+                        "value": "{{GA4 - Basic Settings}}"
+                    }
+                ],
+                "fingerprint": "1782998845385",
+                "firingTriggerId": [
+                    "98"
+                ],
+                "parentFolderId": "157",
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "tagId": "151",
+                "name": "CHTML - Site Speed to DL",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\n// Fabric Analytics, Performance API to dataLayer for GA4.\n// Reports once per page at teardown (tab hidden / pagehide)\n  \n(function () {\n  var SAMPLE_RATE = 1; // 0-1, e.g. 0.25 measures a quarter of page loads\n\n  if (Math.random() >= SAMPLE_RATE) return;\n  if (!('PerformanceObserver' in window) ||\n      !performance.getEntriesByType ||\n      !performance.getEntriesByType('navigation').length) return;\n\n  var nav = performance.getEntriesByType('navigation')[0];\n\n  // Default buffer is 250 entries - not enough for heavy pages\n  try { performance.setResourceTimingBufferSize(1000); } catch (e) {}\n\n  // Paint metrics are unreliable if the tab loaded in the background\n  var wasHidden = document.visibilityState !== 'visible';\n  var loaded = document.readyState === 'complete';\n  window.addEventListener('load', function () { loaded = true; });\n  document.addEventListener('visibilitychange', function () {\n    if (document.visibilityState === 'hidden' && !loaded) wasHidden = true;\n  });\n\n  var fcp = null;\n  try {\n    new PerformanceObserver(function (list, obs) {\n      var entry = list.getEntriesByName('first-contentful-paint')[0];\n      if (entry) { fcp = Math.round(entry.startTime); obs.disconnect(); }\n    }).observe({ type: 'paint', buffered: true });\n  } catch (e) {}\n\n  var lcp = null, lcpElement = null;\n  try {\n    new PerformanceObserver(function (list) {\n      var entries = list.getEntries();\n      var entry = entries[entries.length - 1];\n      lcp = Math.round(entry.startTime);\n      var el = entry.element;\n      if (el) {\n        var ident = el.tagName;\n        if (el.id) {\n          ident += '#' + el.id;\n        } else if (entry.url) {\n          var file = entry.url.split('?')[0].split('/').pop();\n          if (file) ident += ':' + file;\n        }\n        lcpElement = ident.slice(0, 100);\n      }\n    }).observe({ type: 'largest-contentful-paint', buffered: true });\n  } catch (e) {}\n\n  // score uses the same method as CrUX\n  var cls = 0, clsWindow = 0, clsWindowEntries = [];\n  try {\n    new PerformanceObserver(function (list) {\n      list.getEntries().forEach(function (entry) {\n        if (entry.hadRecentInput) return;\n        var first = clsWindowEntries[0];\n        var last = clsWindowEntries[clsWindowEntries.length - 1];\n        if (clsWindow &&\n            entry.startTime - last.startTime < 1000 &&\n            entry.startTime - first.startTime < 5000) {\n          clsWindow += entry.value;\n          clsWindowEntries.push(entry);\n        } else {\n          clsWindow = entry.value;\n          clsWindowEntries = [entry];\n        }\n        if (clsWindow > cls) cls = clsWindow;\n      });\n    }).observe({ type: 'layout-shift', buffered: true });\n  } catch (e) {}\n\n  // INP: keep the 10 slowest interactions\n  var interactions = [];\n  var minId = Infinity, maxId = 0;\n  function recordInteraction(entry) {\n    if (!entry.interactionId) return;\n    minId = Math.min(minId, entry.interactionId);\n    maxId = Math.max(maxId, entry.interactionId);\n    var existing = null;\n    for (var i = 0; i < interactions.length; i++) {\n      if (interactions[i].id === entry.interactionId) { existing = interactions[i]; break; }\n    }\n    if (existing) existing.latency = Math.max(existing.latency, entry.duration);\n    else interactions.push({ id: entry.interactionId, latency: entry.duration });\n    interactions.sort(function (a, b) { return b.latency - a.latency; });\n    if (interactions.length > 10) interactions.length = 10;\n  }\n  try {\n    new PerformanceObserver(function (list) { list.getEntries().forEach(recordInteraction); })\n      .observe({ type: 'event', buffered: true, durationThreshold: 40 });\n    new PerformanceObserver(function (list) { list.getEntries().forEach(recordInteraction); })\n      .observe({ type: 'first-input', buffered: true });\n  } catch (e) {}\n  function getINP() {\n    if (!interactions.length) return null;\n    var count = (performance.interactionCount !== undefined)\n      ? performance.interactionCount\n      : (maxId ? (maxId - minId) / 7 + 1 : 0);\n    return Math.round(interactions[Math.min(interactions.length - 1, Math.floor(count / 50))].latency);\n  }\n\n  var reported = false;\n  function report() {\n    if (reported) return;\n    reported = true;\n\n    var resources = performance.getEntriesByType('resource');\n    var decodedSize = 0, transferSize = 0, cacheHits = 0, measurable = 0, taoBlocked = 0;\n    resources.forEach(function (r) {\n      var decoded = r.decodedBodySize || 0;\n      var transfer = r.transferSize || 0;\n      decodedSize += decoded;\n      transferSize += transfer;\n      if (decoded === 0 && transfer === 0) {\n        taoBlocked++;\n      } else {\n        measurable++;\n        if (transfer === 0) cacheHits++;\n      }\n    });\n\n    var conn = navigator.connection || {};\n\n    window.dataLayer = window.dataLayer || [];\n    window.dataLayer.push({\n      event: 'site_speed',\n      siteSpeedMeasurement: {\n        ttfb: Math.round(nav.responseStart),\n        fcp: fcp,\n        lcp: lcp,\n        cls: Math.round(cls * 1000) / 1000,\n        inp: getINP(),\n        load: nav.domComplete ? Math.round(nav.domComplete) : null,\n        dcl: nav.domContentLoadedEventEnd ? Math.round(nav.domContentLoadedEventEnd) : null,\n        redirect_time: Math.round(nav.redirectEnd - nav.redirectStart),\n        dns_time: Math.round(nav.domainLookupEnd - nav.domainLookupStart),\n        connect_time: Math.round(nav.connectEnd - nav.connectStart),\n        decoded_size: decodedSize,\n        transfer_size: transferSize,\n        requests: resources.length,\n        tao_blocked: taoBlocked,\n        cache_hit_ratio: measurable ? Math.round(cacheHits / measurable * 100) / 100 : null,\n        lcp_element: lcpElement,\n        connection_type: conn.effectiveType || null,\n        rtt: (conn.rtt !== undefined) ? conn.rtt : null,\n        downlink: (conn.downlink !== undefined) ? conn.downlink : null,\n        nav_type: nav.type,\n        was_hidden: wasHidden\n      }\n    });\n  }\n\n  // Tab hidden is the most reliable end of page signal\n  document.addEventListener('visibilitychange', function () {\n    if (document.visibilityState === 'hidden') report();\n  });\n  window.addEventListener('pagehide', report);\n})();\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1782998898546",
+                "firingTriggerId": [
+                    "2147479573"
+                ],
+                "parentFolderId": "157",
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "triggerId": "98",
+                "name": "Site Speed - Event Trigger",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "site_speed"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1782998926729",
+                "parentFolderId": "157"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "90",
+                "name": "Site Speed - FCP",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.fcp"
+                    }
+                ],
+                "fingerprint": "1782995378331",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "93",
+                "name": "Site Speed - CLS",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.cls"
+                    }
+                ],
+                "fingerprint": "1782995378331",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "94",
+                "name": "Site Speed - TTFB",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.ttfb"
+                    }
+                ],
+                "fingerprint": "1782995378353",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "95",
+                "name": "Site Speed - LCP",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.lcp"
+                    }
+                ],
+                "fingerprint": "1782995378352",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "96",
+                "name": "Site Speed - Page Load",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.load"
+                    }
+                ],
+                "fingerprint": "1782995378352",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "97",
+                "name": "Site Speed - Decoded Size",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.decoded_size"
+                    }
+                ],
+                "fingerprint": "1782995378331",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "152",
+                "name": "Site Speed - INP",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.inp"
+                    }
+                ],
+                "fingerprint": "1782995378329",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "153",
+                "name": "Site Speed - DCL",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.dcl"
+                    }
+                ],
+                "fingerprint": "1782995378328",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "154",
+                "name": "Site Speed - Redirect Time",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.redirect_time"
+                    }
+                ],
+                "fingerprint": "1782995378330",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "155",
+                "name": "Site Speed - DNS Time",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.dns_time"
+                    }
+                ],
+                "fingerprint": "1782995378328",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "156",
+                "name": "Site Speed - Connect Time",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.connect_time"
+                    }
+                ],
+                "fingerprint": "1782995378327",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "158",
+                "name": "Site Speed - Transfer Size",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.transfer_size"
+                    }
+                ],
+                "fingerprint": "1782995431074",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "159",
+                "name": "Site Speed - Requests",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.requests"
+                    }
+                ],
+                "fingerprint": "1782995453378",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "160",
+                "name": "Site Speed - Cache Hit Ratio",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.cache_hit_ratio"
+                    }
+                ],
+                "fingerprint": "1782995607570",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "161",
+                "name": "Site Speed - LCP Element",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.lcp_element"
+                    }
+                ],
+                "fingerprint": "1782995491085",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "162",
+                "name": "Site Speed - Connection Type",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.connection_type"
+                    }
+                ],
+                "fingerprint": "1782995508467",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "163",
+                "name": "Site Speed - RTT",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.rtt"
+                    }
+                ],
+                "fingerprint": "1782995527696",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "164",
+                "name": "Site Speed - Downlink",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.downlink"
+                    }
+                ],
+                "fingerprint": "1782995585288",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "165",
+                "name": "Site Speed - Nav Type",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.nav_type"
+                    }
+                ],
+                "fingerprint": "1782995557673",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "166",
+                "name": "Site Speed - Was Hidden",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.was_hidden"
+                    }
+                ],
+                "fingerprint": "1782995575697",
+                "parentFolderId": "157",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "variableId": "168",
+                "name": "Site Speed - TAO Blocked",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "siteSpeedMeasurement.tao_blocked"
+                    }
+                ],
+                "fingerprint": "1782998778990",
+                "parentFolderId": "157",
+                "formatValue": {}
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "6070648465",
+                "containerId": "101261518",
+                "folderId": "157",
+                "name": "Site Speed",
+                "fingerprint": "1782995376674"
+            }
+        ],
+        "fingerprint": "1783000317758",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6070648465/containers/101261518/versions/41?apiLink=version"
+    }
+}
