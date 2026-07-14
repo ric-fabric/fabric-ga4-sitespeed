@@ -1,3 +1,94 @@
+## GTM Implementation
+
+There are two ways to get this into your container. Option A is faster if
+you're comfortable importing containers; Option B gives you full manual
+control (useful if you want to merge into an existing workspace without an
+import, or want to see exactly what's being created).
+
+### Option A — Import the container file (recommended)
+
+1. In GTM, go to **Admin > Import Container**.
+2. Choose `gtm-site-speed-import.json`.
+3. Select your target workspace.
+4. Choose **Merge**, and pick **Rename conflicting tags/triggers/variables**
+   if prompted (unlikely on a clean container).
+5. Confirm the import.
+
+This creates:
+- 1 Custom HTML tag (`CHTML - Site Speed to DL`) firing on **All Pages**
+- 1 Custom Event trigger (`Site Speed - Event Trigger`, listens for the
+  `site_speed` event)
+- 1 GA4 Event tag (`GA4 - Site Speed Event`) firing on that trigger
+- 21 Data Layer Variables (one per metric, listed below)
+
+**You still need to do one thing manually:** the GA4 event tag references
+`{{GA4 - Measurement ID}}` and `{{GA4 - Basic Settings}}` variables which are
+specific to your own GA4 setup and aren't included in the import. Open
+`GA4 - Site Speed Event` after importing and point these at your existing
+GA4 Configuration tag/variable (or hardcode your Measurement ID).
+
+### Option B — Build it manually
+
+**1. Create the Custom HTML tag**
+- New Tag > **Custom HTML**
+- Paste in the contents of `gtm-site-speed-custom-html.html`
+- Trigger: **All Pages** (or Initialization, if you prefer it to fire before
+  other tags)
+- Tag firing priority / sequencing isn't required — the script just sets up
+  listeners and pushes to the dataLayer at page teardown.
+
+**2. Create the Custom Event trigger**
+- New Trigger > **Custom Event**
+- Event name: `site_speed`
+- This fires whenever the script above pushes its `site_speed` event.
+
+**3. Create 21 Data Layer Variables**
+
+All are **Data Layer Variable**, version 2, "Set Default Value" left unchecked.
+Name each one exactly as below (or update the GA4 tag's parameter mapping if
+you use different names) and set the **Data Layer Variable Name** as shown:
+
+| Variable name | Data Layer Variable Name |
+|---|---|
+| Site Speed - TTFB | `siteSpeedMeasurement.ttfb` |
+| Site Speed - FCP | `siteSpeedMeasurement.fcp` |
+| Site Speed - LCP | `siteSpeedMeasurement.lcp` |
+| Site Speed - CLS | `siteSpeedMeasurement.cls` |
+| Site Speed - INP | `siteSpeedMeasurement.inp` |
+| Site Speed - Page Load | `siteSpeedMeasurement.load` |
+| Site Speed - DCL | `siteSpeedMeasurement.dcl` |
+| Site Speed - Redirect Time | `siteSpeedMeasurement.redirect_time` |
+| Site Speed - DNS Time | `siteSpeedMeasurement.dns_time` |
+| Site Speed - Connect Time | `siteSpeedMeasurement.connect_time` |
+| Site Speed - Decoded Size | `siteSpeedMeasurement.decoded_size` |
+| Site Speed - Transfer Size | `siteSpeedMeasurement.transfer_size` |
+| Site Speed - Requests | `siteSpeedMeasurement.requests` |
+| Site Speed - TAO Blocked | `siteSpeedMeasurement.tao_blocked` |
+| Site Speed - Cache Hit Ratio | `siteSpeedMeasurement.cache_hit_ratio` |
+| Site Speed - LCP Element | `siteSpeedMeasurement.lcp_element` |
+| Site Speed - Connection Type | `siteSpeedMeasurement.connection_type` |
+| Site Speed - RTT | `siteSpeedMeasurement.rtt` |
+| Site Speed - Downlink | `siteSpeedMeasurement.downlink` |
+| Site Speed - Nav Type | `siteSpeedMeasurement.nav_type` |
+| Site Speed - Was Hidden | `siteSpeedMeasurement.was_hidden` |
+
+**4. Create the GA4 Event tag**
+- New Tag > **GA4 Event**
+- Configuration: your existing GA4 Configuration tag/settings variable
+- Event Name: `site_speed`
+- Event Parameters: add one row per variable above, using the field names
+  from the Data Dictionary as the parameter name (e.g. parameter `ttfb` →
+  value `{{Site Speed - TTFB}}`, parameter `lcp_element` →
+  value `{{Site Speed - LCP Element}}`, and so on for all 21).
+- Trigger: **Site Speed - Event Trigger** (created in step 2)
+
+**5. Preview and publish**
+- Use GTM Preview mode, load a page, then close the tab or switch tabs to
+  trigger `pagehide`/`visibilitychange` — you should see a `site_speed` event
+  fire with the `siteSpeedMeasurement` object populated, followed by the GA4
+  event tag firing.
+- Check the event lands in GA4 DebugView before publishing.
+
 # Site Speed Measurement — Data Dictionary
 
 Every field collected by the GTM tag and derived in the BigQuery pipeline.
